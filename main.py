@@ -75,3 +75,49 @@ print(
 # Caso 5: Caso falso
 falso = "Python"
 print(f"¿'{falso}' es palíndromo?: {es_palindromo(falso)}")
+
+def verificar_palindromo_incorrecto(contenido):
+    """
+    PLANTILLA CON ERRORES: Intenta verificar si es palíndromo,
+    pero fallará en la mayoría de los casos reales.
+    """
+    # ERROR 1: No convierte a string (romperá si el usuario pasa un número)
+    # ERROR 2: No elimina espacios ni maneja mayúsculas
+    invertido = contenido[::-1]
+
+    # ERROR 3: Comparación directa sin normalizar el texto
+    if contenido == invertido:
+        return True
+    else:
+        return False
+
+
+# =========================================================
+# Casos de prueba donde este código va a FALLAR:
+# =========================================================
+def verificar_palindromo_corregido(contenido):
+    """
+    CÓDIGO CORREGIDO: Ahora maneja números convirtiéndolos 
+    primero a cadena de texto (string).
+    """
+    # SOLUCIÓN: Convertimos a string para poder usar [::-1] sin importar el tipo de dato
+    contenido_texto = str(contenido)
+    
+    # Ahora sí podemos invertir el texto sin que lance TypeError
+    invertido = contenido_texto[::-1]
+
+    if contenido_texto == invertido:
+        return True
+    else:
+        return False
+
+# =========================================================
+# Probando de nuevo el caso del número en VS Code:
+# =========================================================
+
+# YA NO SE ROMPE: Ahora convierte 12321 a "12321", lo invierte y da True
+print("Prueba Número 12321:", verificar_palindromo_corregido(12321))
+
+# EXTRA: ¿Qué pasa con los otros casos todavía?
+print("Prueba 'Radar':", verificar_palindromo_corregido("Radar"))  # Sigue dando False por la mayúscula
+
