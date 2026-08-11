@@ -40,3 +40,38 @@ lista_mixta = [1, "hola", 1, True, "hola", 2, False, 0]
 print("\n--- Caso 5: Tipos Mixtos ---")
 print("Antes: ", lista_mixta)
 print("Después:", eliminar_duplicados(lista_mixta))
+
+def es_palindromo(contenido):
+    """Verifica si una cadena o número es un palíndromo."""
+    # 1. Convertir todo a string, eliminar espacios y pasar a minúsculas
+    cadena_limpia = str(contenido).replace(" ", "").lower()
+
+    # 2. Comparar la cadena limpia con su versión invertida
+    return cadena_limpia == cadena_limpia[::-1]
+
+
+# =========================================================
+# Pruebas y Casos de Uso en VS Code
+# =========================================================
+
+# Caso 1: Una palabra clásica
+palabra = "Radar"
+print(f"¿'{palabra}' es palíndromo?: {es_palindromo(palabra)}")
+
+# Caso 2: Una frase con espacios y mayúsculas
+frase = "Anita lava la tina"
+print(f"¿'{frase}' es palíndromo?: {es_palindromo(frase)}")
+
+# Caso 3: Un número entero (Capicúa)
+numero_entero = 12321
+print(f"¿El número {numero_entero} es palíndromo?: {es_palindromo(numero_entero)}")
+
+# Caso 4: Un número decimal
+numero_decimal = 12.21
+print(
+    f"¿El número {numero_decimal} es palíndromo?: {es_palindromo(numero_decimal)}"
+)
+
+# Caso 5: Caso falso
+falso = "Python"
+print(f"¿'{falso}' es palíndromo?: {es_palindromo(falso)}")
