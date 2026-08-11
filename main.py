@@ -1,3 +1,5 @@
+print ("Desafío 1")
+print ("Tarea 1")
 # 1. Definición de la función
 def eliminar_duplicados(array):
     """
@@ -53,7 +55,7 @@ def es_palindromo(contenido):
 # =========================================================
 # Pruebas y Casos de Uso en VS Code
 # =========================================================
-
+print ("Tarea 2")
 # Caso 1: Una palabra clásica
 palabra = "Radar"
 print(f"¿'{palabra}' es palíndromo?: {es_palindromo(palabra)}")
@@ -121,3 +123,57 @@ print("Prueba Número 12321:", verificar_palindromo_corregido(12321))
 # EXTRA: ¿Qué pasa con los otros casos todavía?
 print("Prueba 'Radar':", verificar_palindromo_corregido("Radar"))  # Sigue dando False por la mayúscula
 
+print ("Tarea 3")
+#ENCONTRAR MÁXIMOS Y MÍNIMOS
+def encontrar_extremos(array):
+    # Caso límite: Si el array está vacío
+    if not array:
+        return None, None
+
+    # Inicializar con el primer elemento
+    maximo = array[0]
+    minimo = array[0]
+
+    # Recorrer el array a partir del segundo elemento
+    for numero in array[1:]:
+        if numero > maximo:
+            maximo = numero
+        if numero < minimo:
+            minimo = numero
+
+    return maximo, minimo
+
+
+# =========================================================
+# Pruebas en VS Code
+# =========================================================
+numeros = [23, 54, 12, 89, 4, 76, -5, 43]
+resultado_max, resultado_min = encontrar_extremos(numeros)
+
+print("--- Desafío: Máximo y Mínimo ---")
+print(f"Array original: {numeros}")
+print(f"Valor Máximo encontrado: {resultado_max}")
+print(f"Valor Mínimo encontrado: {resultado_min}")
+#DETERMINAR LONGITUD DE CADENA
+def calcular_longitud(cadena):
+    contador = 0
+
+    # Recorrer carácter por carácter incrementando el contador
+    for caracter in cadena:
+        contador += 1
+
+    return contador
+
+
+# =========================================================
+# Pruebas en VS Code
+# =========================================================
+texto_prueba = "Python en VS Code"
+longitud_total = calcular_longitud(texto_prueba)
+
+print("\n--- Desafío: Longitud sin len() ---")
+print(f"Texto: '{texto_prueba}'")
+print(f"Longitud calculada: {longitud_total} caracteres")
+
+# Prueba con caso límite (cadena vacía)
+print(f"Longitud de cadena vacía: {calcular_longitud('')}")
